@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: vault-demo
+  cloud:
+    vault:
+      token: 82d47adf-3a2b-7c9b-aba7-fa07a3a143ac
+      scheme: http
+
