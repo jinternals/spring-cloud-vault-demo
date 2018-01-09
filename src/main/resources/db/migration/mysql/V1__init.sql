@@ -1,0 +1,13 @@
+
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `INDEX_UK_USER_EMAIL` (`email`)
+);
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -34,3 +34,25 @@
   export VAULT_TOKEN=<root token generated during init pahse>
   vault write secret/vault-demo test=some-data
 ```  
+
+*  Mount mysql : 
+
+``` 
+vault mount mysql
+``` 
+*  Setup mysql connection : 
+
+``` 
+vault write mysql/config/connection connection_url="root:machine@tcp(127.0.0.1:3306)/"
+``` 
+*  Setup role with script for  creation and the authorization : 
+
+``` 
+vault write mysql/roles/demo sql="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT,CREATE,ALTER,UPDATE,INDEX,INSERT,REFERENCES ON *.* TO '{{name}}'@'%';"
+
+``` 
+*  Read credentials from vault : 
+
+``` 
+vault read mysql/creds/demo
+``` 

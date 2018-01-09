@@ -1,8 +1,26 @@
+server:
+  port: 8080
 spring:
   application:
     name: vault-demo
   cloud:
     vault:
-      token: 82d47adf-3a2b-7c9b-aba7-fa07a3a143ac
+      token: <token here>
       scheme: http
+      mysql:
+        enabled: true
+        role: demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: validate
+    hibernate:
+      show_sql: true
+      use_sql_comments: true
+      format_sql: true
 
+flyway:
+  locations: db/migration/mysql

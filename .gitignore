@@ -142,3 +142,5 @@ hs_err_pid*
 /infra/**
 /logs/**
 */logs/**
+
+.DS_Store
