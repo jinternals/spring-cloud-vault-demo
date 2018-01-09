@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: 8089
 spring:
   application:
     name: vault-demo
   cloud:
     vault:
-      token: <token here>
+      token: f038cbe9-57aa-94a6-f190-5ec557253304
       scheme: http
       mysql:
         enabled: true
