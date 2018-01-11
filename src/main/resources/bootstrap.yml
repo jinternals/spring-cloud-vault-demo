@@ -5,7 +5,7 @@ spring:
     name: vault-demo
   cloud:
     vault:
-      token: f038cbe9-57aa-94a6-f190-5ec557253304
+      token: <Token here>
       scheme: http
       mysql:
         enabled: true
