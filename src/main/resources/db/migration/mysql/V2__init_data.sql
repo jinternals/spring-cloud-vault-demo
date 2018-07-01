@@ -1,5 +1,5 @@
 
 
-INSERT INTO auth.user (email) VALUES ('pandeymradul1@gmail.com');
+INSERT INTO demo.user (email) VALUES ('pandeymradul1@gmail.com');
 
-INSERT INTO auth.user (email) VALUES ('admin@sms.com');
+INSERT INTO demo.user (email) VALUES ('admin@sms.com');

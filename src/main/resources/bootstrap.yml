@@ -1,17 +1,28 @@
 server:
   port: 8089
+
 spring:
   application:
     name: vault-demo
   cloud:
     vault:
-      token: <Token here>
+      token: e5d37ee2-43f2-c9bb-f9d2-39e4294e468c
+      host: localhost
+      port: 8200
       scheme: http
-      mysql:
+      uri: http://localhost:8200
+      connection-timeout: 5000
+      read-timeout: 15000
+      config:
+        order: -10
+      database:
         enabled: true
-        role: demo
+        role: application
+        backend: database
+        username-property: spring.datasource.username
+        password-property: spring.datasource.password
   datasource:
-    url: jdbc:mysql://localhost:3306/auth
+    url: jdbc:mysql://localhost:3306/demo
   jpa:
     properties:
       hibernate:
@@ -21,6 +32,5 @@ spring:
       show_sql: true
       use_sql_comments: true
       format_sql: true
-
-flyway:
-  locations: db/migration/mysql
+  flyway:
+    locations: classpath:db/migration/mysql

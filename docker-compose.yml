@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - 3306:3306
+    volumes:
+      -  './config/my.cnf:/etc/my.cnf'
+    networks:
+      vault-network:
+        ipv4_address: 10.5.0.2
+
+  vault:
+    container_name: vault
+    image: vault
+    volumes:
+      - ./config/vault.hcl:/etc/vault.hcl
+    ports:
+      - 8200:8200
+    command: "server -config=/etc/vault.hcl"
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+    networks:
+      vault-network:
+        ipv4_address: 10.5.0.3
+
+networks:
+   vault-network:
+     driver: bridge
+     ipam:
+      config:
+        - subnet: 10.5.0.0/16
