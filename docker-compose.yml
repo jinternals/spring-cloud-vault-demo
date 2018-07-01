@@ -15,6 +15,19 @@ services:
       vault-network:
         ipv4_address: 10.5.0.2
 
+  consul:
+    image: consul:latest
+    container_name: consul
+    ports:
+      - "8301:8301"
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:53"
+    command: "agent -server -client=0.0.0.0 -bootstrap -ui"
+    networks:
+      vault-network:
+        ipv4_address: 10.5.0.3
+
   vault:
     container_name: vault
     image: vault
@@ -27,7 +40,7 @@ services:
       - VAULT_ADDR=http://127.0.0.1:8200
     networks:
       vault-network:
-        ipv4_address: 10.5.0.3
+        ipv4_address: 10.5.0.4
 
 networks:
    vault-network:
