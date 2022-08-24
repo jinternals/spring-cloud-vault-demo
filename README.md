@@ -31,11 +31,7 @@
 *  Initilize vault :
 
 ``` shell
-    vault operator init
-```
-*  Unseal vault : 
- 
-```shell    
+    vault operator init   
     vault operator unseal <token>
 ```    
 *  Store some secret in vault : 
@@ -43,14 +39,14 @@
 ```shell    
   export VAULT_TOKEN=<root token generated during init pahse>
 ```  
-
+* Store KV secrets in vault
 ```shell   
   vault secrets enable -path=secret/ kv
   vault kv put secret/vault-demo some.username=root some.password=root
   vault kv get secret/vault-demo
 ```  
 
-*  Mount mysql : 
+*  Enable mysql in vault : 
 
 ```shell
     vault secrets enable database
